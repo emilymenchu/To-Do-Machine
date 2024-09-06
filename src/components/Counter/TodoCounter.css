@@ -1,0 +1,8 @@
+h1 {
+    font-size: 30px;
+    text-align: center;
+    margin: 0;
+    padding: 48px;
+    font-family: var(--pixel-font-family);
+    color: var(--font-color-grey);
+}
