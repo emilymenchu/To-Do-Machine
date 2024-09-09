@@ -1,8 +1,8 @@
 h1 {
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
     margin: 0;
-    padding: 48px;
+    padding: 40px;
     font-family: var(--pixel-font-family);
-    color: var(--font-color-grey);
+    color: var(--color-cream);
 }

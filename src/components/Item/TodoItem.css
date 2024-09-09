@@ -2,5 +2,113 @@
     background-color: var(--color-cream);
     width: 100%;
     height: 20%;
-    border-radius: 20px;
+    min-height: 80px;
+    border-radius: 15px;
+    padding: 10px;
 }
+.li-task-container {
+    height: 100%;
+}
+
+#task-title {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--font-grey-color);
+    margin: 0;
+    height: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.task-info {
+    border-top: var(--color-light-blue) solid;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    justify-content: space-between;
+}
+
+.categories-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding-bottom: 5px;
+}
+
+.category-container {
+    background-color: var(--color-light-blue);
+    border-radius: 8px;
+    padding: 2px;
+    padding-left: 7px;
+    padding-right: 7px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+#Personal {
+    background-color: var(--category-background-blue);
+    color: var(--category-text-blue);
+}
+
+#School {
+    background-color: var(--category-background-purple);
+    color: var(--category-text-purple);
+}
+
+#Work {
+    background-color: var(--category-background-bluish-purple);
+    color: var(--category-text-bluish-purple);
+}
+
+.priority-date-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.priority-container {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+.priority-container p{
+    margin: 0;
+    font-size: 15px;
+    color: var(--font-grey-color);
+}
+
+.priority {
+    display: inline-block;
+    border-radius: 8px;
+    padding: 2px;
+    padding-left: 7px;
+    padding-right: 7px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+#Low {
+    background-color: var(--category-background-blue);
+    color: var(--category-text-blue);
+}
+
+#Medium {
+    background-color: var(--priority-background-orange);
+    color: var(--priority-text-orange);
+}
+
+#High {
+    background-color: var(--priority-background-red);
+    color: var(--priority-text-red);
+}
+
+.due-date {
+    padding-left: 50px;
+    font-size: 15px;
+    color: var(--font-grey-color);
+}
+

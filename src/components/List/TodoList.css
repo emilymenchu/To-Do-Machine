@@ -8,21 +8,23 @@
     align-items: center;
     justify-content: flex-start;
     height: 90%;
-    background-color: rgba(254, 254, 252, 0.305);
+    background-color: rgba(255, 255, 255, 0.225);
     border-radius: 10px;
     overflow: auto;
-    box-shadow: 4px 4px 4px rgba(58, 58, 58, 0.2);
+    box-shadow: 4px 4px 4px rgba(3, 49, 177, 0.118);
 }
 .section-title {
     font-family: var(--pixel-font-family);
-    font-size: larger;
+    font-size: 25px;
     text-align: center;
-    color: var(--font-color-grey);
+    color: var(--color-cream);
+    font-weight: bolder;
 }
 
 .task-list {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
     list-style-type: none;
     padding-left: 0;

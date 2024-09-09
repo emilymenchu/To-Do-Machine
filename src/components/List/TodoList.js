@@ -5,7 +5,7 @@ function TodoList({ children, state } ){
         <div className="list-parent">
             <p className="section-title">{state}</p>
             <section className="list-container">
-                <ul class="task-list">
+                <ul className="task-list">
                     {children}
                 </ul>
             </section>

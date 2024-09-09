@@ -2,25 +2,47 @@
     --pixel-font-family: "Pixelify Sans", sans-serif;
     --color-cream: #fafaf7;
     --color-light-blue: #a5d5fc;
-    --font-grey-color: #676764;
+    --font-grey-color: #484747;
+
+    --category-background-blue: #c5e5ff;
+    --category-text-blue: #43aafe;
+
+    --category-background-purple: #E3E1FA;
+    --category-text-purple: #9c59fa;
+
+    --category-background-bluish-purple: #E3E1FA;
+    --category-text-bluish-purple: #43458E;
+
+    --priority-background-orange: #fcd5b5;
+    --priority-text-orange: #ff7300;
+
+    --priority-background-red: #ffd8d8;
+    --priority-text-red: #fe6464;
+
+
 }
 
 .main-background {
   background: linear-gradient(135deg, var(--color-light-blue), var(--color-cream));
   height: 100vh; 
   width: 100%; 
+  position: relative;
 }
 
 .main-container {
     width: 1500px;
-    height: 70vh;
+    height: 80vh;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(135deg, var(--color-cream), var(--color-light-blue) );
+    background: linear-gradient(0deg, var(--color-cream), var(--color-light-blue) );
     border-radius: 10px;
     box-shadow: 4px 4px 4px rgba(58, 58, 58, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
 }
 
 .lists-container {
@@ -28,4 +50,6 @@
     flex-direction: row;
     justify-content: space-evenly;
     height: 70%;
+    width: 85%;
 }
+
