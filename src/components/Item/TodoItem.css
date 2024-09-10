@@ -2,7 +2,8 @@
     background-color: var(--color-cream);
     width: 100%;
     height: 20%;
-    min-height: 80px;
+    max-height: 110px;
+    min-height: 100px;
     border-radius: 15px;
     padding: 10px;
 }
@@ -12,7 +13,6 @@
 
 #task-title {
     font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
     color: var(--font-grey-color);
     margin: 0;
     height: 20px;
@@ -30,6 +30,8 @@
     flex-direction: column;
     height: 50%;
     justify-content: space-between;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .categories-container {
@@ -45,7 +47,7 @@
     padding: 2px;
     padding-left: 7px;
     padding-right: 7px;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 15px;
 }
 
@@ -64,10 +66,16 @@
     color: var(--category-text-bluish-purple);
 }
 
+#Church {
+    background-color: rgb(239, 244, 211);
+    color: rgb(136, 188, 95);
+}
+
 .priority-date-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    gap: 5px;
 }
 
 .priority-container {
@@ -87,7 +95,7 @@
     padding: 2px;
     padding-left: 7px;
     padding-right: 7px;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 15px;
 }
 
@@ -107,8 +115,10 @@
 }
 
 .due-date {
-    padding-left: 50px;
     font-size: 15px;
     color: var(--font-grey-color);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 

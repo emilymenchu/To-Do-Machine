@@ -10,7 +10,7 @@ import { CreateTodoButton } from './components/CreateButton/CreateTodoButton';
 import { CreateTaskWindow } from './components/CreateTaskWindow/CreateTaskWindow';
 
 const states = ['To-do', 'In progress', 'Done'];
-const categories = ['Personal', 'School', 'Work'];
+const categories = ['Personal', 'School', 'Work', 'Church'];
 const priority = ['Low', 'Medium', 'High'];
 
 const tasks = [

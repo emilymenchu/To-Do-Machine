@@ -16,7 +16,7 @@ function TodoItem({ task }) {
                         <p>Priority:</p>
                         <div id={task.priority} className='priority' >{task.priority}</div>
                     </section>
-                    <div className='due-date'>Due to {task.dueDate}</div>
+                    <div className='due-date'>Deadline: {task.dueDate}</div>
                 </div>
             </div>
         </li>

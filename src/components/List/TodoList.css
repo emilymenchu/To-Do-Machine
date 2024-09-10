@@ -1,6 +1,7 @@
 .list-parent {
     height: 100%;
-    width: 400px;
+    width: 32%;
+    min-width: 250px;
 }
 .list-container {
     display: flex;
@@ -14,7 +15,6 @@
     box-shadow: 4px 4px 4px rgba(3, 49, 177, 0.118);
 }
 .section-title {
-    font-family: var(--pixel-font-family);
     font-size: 25px;
     text-align: center;
     color: var(--color-cream);
@@ -28,7 +28,7 @@
     gap: 10px;
     list-style-type: none;
     padding-left: 0;
-    height: 80%;
+    height: 100%;
     width: 80%;
     padding: 10%;
     margin: 0;

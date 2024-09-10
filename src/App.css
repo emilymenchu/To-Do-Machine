@@ -1,5 +1,7 @@
 :root {
     --pixel-font-family: "Pixelify Sans", sans-serif;
+    --courier-font-family: "Courier New", Courier, monospace;
+
     --color-cream: #fafaf7;
     --color-light-blue: #a5d5fc;
     --font-grey-color: #484747;
@@ -22,6 +24,11 @@
 
 }
 
+body {
+    font-family: var(--courier-font-family);
+}
+
+
 .main-background {
   background: linear-gradient(135deg, var(--color-light-blue), var(--color-cream));
   height: 100vh; 
@@ -30,8 +37,10 @@
 }
 
 .main-container {
-    width: 1500px;
-    height: 80vh;
+    width: 95%;
+    /* max-width: 1500px; */
+    height: 95%;
+    max-height: 1500px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -49,7 +58,26 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    height: 70%;
+    height: 75%;
     width: 85%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+}
+
+@media (min-width: 2000px) {
+    .main-container {
+        height: 85vh;
+        width: 70%;
+    }
+}
+
+@media (max-width: 500px){
+    .main-container {
+        overflow: auto;
+        height: 1000px;
+        max-height: 3000px;
+    }
 }
 
