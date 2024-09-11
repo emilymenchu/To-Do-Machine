@@ -1,5 +1,5 @@
 .overlay-popup {
-    display: block; /* Oculto por defecto */
+    display: none; /* Oculto por defecto */
     position: fixed;
     top: 0;
     left: 0;
@@ -10,7 +10,7 @@
   }
 
   .create-window-main-container {
-    display: flex; /*flex*/
+    display: none; /*flex*/
     flex-direction: column;
     padding: 2%;
     width: 50%;
@@ -45,15 +45,23 @@
     font-family: var(--courier-font-family);
   }
 
-  .task-description-input {
-    width: 90%;
-    height: 50%;
+  .task-description-textarea {
+    width: 100%;
+    resize: none;
     border: none;
     outline: none;
     background: none;
     font-size: 18px;
     color: var(--font-grey-color);
     font-family: var(--courier-font-family);
+  }
+
+  .other-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    height: 80%;
   }
 
   /* css de la parte de state */
@@ -83,6 +91,11 @@
     width: 100%;
     padding: 10px;
     cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
   }
 
   #stateMenuCheckbox {
@@ -170,7 +183,7 @@
   padding-left: 0;
   margin: 0;
   font-size: small;
-  padding: 5px;
+  gap: 5px;
 }
 
 #categoriesMenuCheckbox {
@@ -203,6 +216,13 @@
 
 /* css de prioridad */
 
+.task-priority-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
 .task-priority-button {
   position: relative;
   display: flex;
@@ -210,52 +230,129 @@
   align-items: center;
   width: 100px;
   height: 30px;
+  background-color: var(--category-background-blue);
   border-radius: 8px;
-  color: var(--color-cream);
+  color: var(--category-text-blue);
   border: none;
   padding: 0;
 }
 
-.task-state-button > label {
+.task-priority-button > label {
   width: 100%;
   padding: 10px;
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-#stateMenuCheckbox {
+#priorityMenuCheckbox {
   display: none;
 }
 
-#stateMenuCheckbox:checked ~ .task-state-menu {
-  display: block;
+#priorityMenuCheckbox:checked ~ .task-priority-menu {
+  display: flex;
 }
 
-.task-state-text {
+.task-priority-text {
   font-family: var(--courier-font-family);
   font-weight: 600;
   font-size: medium;
 }
 
 .task-priority-menu {
+  flex-direction: column;
   position: absolute;
   top: 100%;
   left: 0;
   background-color: var(--color-cream);
-  border: 1px solid var(--color-light-blue);
+  border: 1px solid rgb(205, 204, 204);
   list-style: none;
   display: none; 
   z-index: 1;
-  width: 100px;
+  width: 100%;
   border-radius: 8px;
   padding-left: 0;
   margin: 0;
+  padding: 5px;
+  gap: 5px;
+  justify-content: space-evenly;
 }
 
 .task-priority-option {
   font-weight: 600;
-  font-size: small;
+  font-size: medium;
   padding: 5px;
+  font-family: var(--courier-font-family);
+  border-radius: 8px;
+}
+
+.task-priority-option:nth-child(1) {
+  background-color: var(--category-background-blue);
+  color: var(--category-text-blue);
+}
+.task-priority-option:nth-child(1):hover {
+  color: var(--category-background-blue);
+  background-color: var(--category-text-blue);
+}
+
+.task-priority-option:nth-child(2) {
+  background-color: var(--priority-background-orange);
+  color: var(--priority-text-orange);
+}
+.task-priority-option:nth-child(2):hover {
+  color: var(--priority-background-orange);
+  background-color: var(--priority-text-orange);
+}
+
+.task-priority-option:nth-child(3) {
+  background-color: var(--priority-background-red);
+  color: var(--priority-text-red);
+}
+.task-priority-option:nth-child(3):hover {
+  color: var(--priority-background-red);
+  background-color: var(--priority-text-red);
+}
+
+/* estilos de calendario */
+.task-due-date {
+  display: flex;
+  flex-direction: column;
+}
+
+.p-fluid {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.flex-auto {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: center;
+}
+
+.p-button { /* botones con los iconos de calendario y hora*/
+  background: var(--color-light-blue);
+  border: var(--color-light-blue);
+}
+
+/* esto es el borde del input cuando se esta ingresando */
+.p-calendar:not(.p-calendar-disabled).p-focus > .p-inputtext {
+  border-color: var(--color-light-blue);
+}
+
+.p-inputtext {
   font-family: var(--courier-font-family);
 }
 
+.p-link {
+  font-family: var(--courier-font-family);
+}
 
+.p-component {
+  font-family: var(--courier-font-family);
+}

@@ -68,8 +68,8 @@ body {
 
 @media (min-width: 2000px) {
     .main-container {
-        height: 85vh;
-        width: 70%;
+        height: 90vh;
+        width: 60%;
     }
 }
 
