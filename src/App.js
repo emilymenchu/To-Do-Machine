@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './App.css';
 
@@ -9,7 +9,7 @@ import { TodoItem } from './components/Item/TodoItem';
 import { CreateTodoButton } from './components/CreateButton/CreateTodoButton';
 import { CreateTaskWindow } from './components/CreateTaskWindow/CreateTaskWindow';
 
-const states = ['To-do', 'In progress', 'Done'];
+const states = ['To-do', 'In Progress', 'Done'];
 const categories = ['Personal', 'School', 'Work', 'Church'];
 const priority = ['Low', 'Medium', 'High'];
 
@@ -19,6 +19,7 @@ const defaultTasks = [
   { id: 3, text: 'Cry with the scary cursed crier woman', description: 'She has been depressed', state: states[2], categories: [categories[0]], priority: priority[1], dueDate: '1/1/2025'},
   { id: 4, text: 'Buy cheese at the moon market', description: '', state: states[0], categories: [categories[0]], priority: priority[2], dueDate: '7/12/2024'},
   { id: 5, text: 'Set a meting with the president of Mars', description: '', state: states[0], categories: [categories[0]], priority: priority[2], dueDate: '7/12/2024'},
+  { id: 6, text: 'Go for a walk in Jupiter', description: '', state: states[0], categories: [categories[0]], priority: priority[2], dueDate: '7/12/2024'},
 ]
 
 
@@ -27,13 +28,36 @@ function App() {
 
   const [searchValue, setSearchValue] = React.useState('');
 
-  const completedTasks = tasks.filter(task => task.state == states[2]).length;
+  const [taskWindowIsOpen, setTaskWindowIsOpen] = useState(false);
+
+  const showTaskWindow = () => {
+    setTaskWindowIsOpen(!taskWindowIsOpen);
+  };
+
+  const completedTasks = tasks.filter(task => task.state === states[2]).length;
 
   const totalTasks = tasks.length;
 
   const searchFilteredTasks = tasks.filter(task => task.text.toLowerCase().includes(searchValue.toLowerCase()));
 
-  console.log('Los usuarios buscan ' + searchValue);
+  const changeTaskState = (id, state) => {
+    const newTasks = [...tasks];
+    const taskIndex = newTasks.findIndex(
+      task => task.id === id
+    )
+    newTasks[taskIndex].state = state;
+    setTasks(newTasks);
+  }
+
+  const deleteTask = (id) => {
+    const newTasks = [...tasks];
+    const taskIndex = newTasks.findIndex(
+      task => task.id === id
+    )
+    newTasks.splice(taskIndex, 1)
+    setTasks(newTasks);
+  }
+
 
   return (
     <div className="main-background">
@@ -50,7 +74,7 @@ function App() {
           {searchFilteredTasks
           .filter((task) => task.state === state)
           .map((task) => (
-            <TodoItem key={task.id} task={task}/>
+            <TodoItem key={task.id} task={task} onChangeState={changeTaskState} onDelete={deleteTask}/>
           ))}
         </TodoList>
         ))}
@@ -58,10 +82,10 @@ function App() {
       </section>
         
 
-        <CreateTodoButton />
+        <CreateTodoButton onClick={showTaskWindow}/>
       </div>
       
-      <CreateTaskWindow/>
+       <CreateTaskWindow isOpen={taskWindowIsOpen} onBackgroundClick={showTaskWindow}/>
 
     </div>
   );

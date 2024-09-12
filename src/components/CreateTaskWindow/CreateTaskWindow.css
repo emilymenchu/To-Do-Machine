@@ -24,13 +24,25 @@
 
     background-color: var(--color-cream);
     border-radius: 25px;
+    gap: 20px;
 
     z-index: 1000;
   }
 
+  .task-title-exs-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .pi-times {
+    color: #aca8a8;
+    font-size: 30px;
+  }
+
   .task-title-input {
     width: 90%;
-    height: 15%;
+    height: 100%;
     border: none;
     outline: none;
     background: none;
@@ -52,6 +64,7 @@
     outline: none;
     background: none;
     font-size: 18px;
+    padding-top: 10px;
     color: var(--font-grey-color);
     font-family: var(--courier-font-family);
   }

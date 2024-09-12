@@ -1,12 +1,8 @@
 import './CreateTodoButton.css'
 
-function CreateTodoButton () {
+function CreateTodoButton ({onClick}) {
     return (
-        <button className="create-button" onClick={(event) => {
-            console.log('le diste click');
-            console.log(event);
-            console.log(event.target);
-        }}>+</button>
+        <button className="create-button" onClick={onClick}>+</button>
     );
 }
 
