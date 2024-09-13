@@ -12,7 +12,8 @@ function TodoSearch({
                     console.log('Escribiste en el TodoSearch');
                     setSearchValue(event.target.value);
                 }} />
-                <button className="search-button"></button>
+                <button className="search-button">
+                </button>
             </div>
         </section>
     );

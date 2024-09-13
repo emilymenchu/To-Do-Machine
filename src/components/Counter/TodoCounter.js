@@ -1,11 +1,15 @@
 import './TodoCounter.css';
 
-function TodoCounter({ total, completed, areAllTasksDone }) {
+function TodoCounter({ total, completed }) {
     return (
+        (total === completed) ?
             <h1>
-                {!areAllTasksDone && `You have completed ${completed} out of ${total} to-do's`}
-                {areAllTasksDone && `You have completed all your tasks, Congratulations`}
+                You have completed all your tasks. Congratulations 🎉
             </h1>
+            :
+            <h1>
+                You have completed {completed} out of {total} to-do's
+            </h1>    
     )
 }
 
