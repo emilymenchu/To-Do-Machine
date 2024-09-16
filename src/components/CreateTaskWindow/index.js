@@ -4,14 +4,9 @@ import './CreateTaskWindow.css';
 import { Calendar } from 'primereact/calendar';  
 import "primereact/resources/themes/lara-light-blue/theme.css"; 
 import 'primeicons/primeicons.css';
-        
-
-const states = ['To-do', 'In progress', 'Done'];
-const categories = ['Personal', 'School', 'Work', 'Church'];
-const priority = ['Low', 'Medium', 'High'];
 
 
-function CreateTaskWindow ({task, isOpen, onBackgroundClick}) {
+function CreateTaskWindow ({task, isOpen, onBackgroundClick, states, categories, priority}) {
 
     const [date, setDate] = useState();
     const [value, setValue] = useState();
