@@ -1,0 +1,51 @@
+.skeleton-container {
+    
+}
+
+.skeleton-title {
+    width: 70%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+.skeleton-info {
+    border-top: rgb(226, 223, 223) solid;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    justify-content: space-between;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.last-row-skeleton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.span-skeleton {
+    width: 32%;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.skeleton-1 {
+    width: 69%;   
+}
+
+.skeleton-2 {
+    width: 75%;
+}
+
+
+@media (max-width: 500px) {
+    .skeleton-container {
+        height: 30%;
+        max-height: 200px;
+    }
+    
+}

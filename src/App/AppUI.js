@@ -5,6 +5,7 @@ import { TodoList } from '../components/List';
 import { TodoItem } from '../components/Item';
 import { CreateTodoButton } from '../components/CreateButton';
 import { CreateTaskWindow } from '../components/CreateTaskWindow';
+import { TaskLoading } from "../components/TasksLoading";
 
 function AppUI ({ completedTasks, totalTasks, searchValue, setSearchValue, searchFilteredTasks, changeTaskState, deleteTask, showTaskWindow, taskWindowIsOpen, states, categories, priority, loading, error }) {
     return (
@@ -18,16 +19,16 @@ function AppUI ({ completedTasks, totalTasks, searchValue, setSearchValue, searc
       <section className="lists-container">
 
         {states.map((state, index) => (
-        <TodoList key={index} state={state}>
-          {loading && <span>Charging...</span>}
-          {error && <span>Error!!! We all are going to die</span>}
-          {(!loading && searchFilteredTasks.length === 0) && <span>Create a new Task</span>}
-          {searchFilteredTasks
-          .filter((task) => task.state === state)
-          .map((task) => (
-            <TodoItem key={task.id} task={task} onChangeState={changeTaskState} onDelete={deleteTask}/>
-          ))}
-        </TodoList>
+          <TodoList key={index} state={state}>
+            {loading && <TaskLoading cards={3}/>}
+            {error && <span>Error!!! We all are going to die</span>}
+            {(!loading && searchFilteredTasks.length === 0) && <span>Create a new Task</span>}
+            {searchFilteredTasks
+            .filter((task) => task.state === state)
+            .map((task) => (
+              <TodoItem key={task.id} task={task} onChangeState={changeTaskState} onDelete={deleteTask}/>
+            ))}
+          </TodoList>
         ))}
 
       </section>
