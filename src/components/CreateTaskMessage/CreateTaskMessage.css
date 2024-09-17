@@ -1,0 +1,37 @@
+.create-message-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-message-img-container {
+    height: 40%;
+    width: 70%;
+    border-radius: 15px;
+    
+}
+
+.create-message {
+    color: var(--font-grey-color);
+    width: 70%;
+    font-size: large;
+    padding: 5px;
+    border-radius: 15px;
+    text-wrap: wrap;
+    text-align: center;
+}
+
+.cmTo-do {
+    background: url('https://i.pinimg.com/564x/f4/6e/8f/f46e8f7eefb4646d9258243822ac649b.jpg') center/cover no-repeat;
+}
+
+.cmInProgress {
+    background: url('https://i.pinimg.com/564x/62/0f/35/620f3522031d1e8742e7d67643693ac3.jpg') center/cover no-repeat;
+}
+
+.cmDone {
+    background: url('https://i.pinimg.com/564x/5d/cc/c4/5dccc46ebd6041a67127e95b4483cb3f.jpg') center/cover no-repeat;
+}

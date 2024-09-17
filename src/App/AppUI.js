@@ -7,8 +7,9 @@ import { CreateTodoButton } from '../components/CreateButton';
 import { CreateTaskWindow } from '../components/CreateTaskWindow';
 import { TaskLoading } from "../components/TasksLoading";
 import { TaskError } from "../components/TaskError";
+import { CreateTaskMessage } from "../components/CreateTaskMessage";
 
-function AppUI ({ completedTasks, totalTasks, searchValue, setSearchValue, searchFilteredTasks, changeTaskState, deleteTask, showTaskWindow, taskWindowIsOpen, states, categories, priority, loading, error }) {
+function AppUI () {
     return (
         <div className="main-background">
 
@@ -16,7 +17,7 @@ function AppUI ({ completedTasks, totalTasks, searchValue, setSearchValue, searc
 
 
       <div className="main-container">
-        <TodoCounter completed={completedTasks} total={totalTasks} />
+        <TodoCounter/>
 
         <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue}/>
 
@@ -25,14 +26,13 @@ function AppUI ({ completedTasks, totalTasks, searchValue, setSearchValue, searc
         {states.map((state, index) => (
           <TodoList key={index} state={state}>
             {loading && <TaskLoading cards={3}/>}
-            {error && <TaskError />}
-            {(!loading && searchFilteredTasks.length === 0) && <span>Create a new Task</span>}
+            {(!loading && searchFilteredTasks.length === 0) && <CreateTaskMessage state={state}/>}
             {searchFilteredTasks
             .filter((task) => task.state === state)
             .map((task) => (
               <TodoItem key={task.id} task={task} onChangeState={changeTaskState} onDelete={deleteTask}/>
             ))}
-            
+
           </TodoList>
         ))}
 

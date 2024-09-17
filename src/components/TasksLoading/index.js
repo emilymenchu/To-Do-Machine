@@ -6,9 +6,9 @@ import './TaskLoading.css'
 
 function TaskLoading ({cards}) {
     return (
-        Array(cards).fill(0).map(() => (
+        Array(cards).fill(0).map((item, index) => (
 
-            <div className="task-container skeleton-container">
+            <div className="task-container skeleton-container" key={index}>
                 <SkeletonTheme>
                     <li className='li-task-container'>
                         <div className='skeleton-title'>

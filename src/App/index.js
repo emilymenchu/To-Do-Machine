@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 
 import './App.css';
-import { useLocalStorage } from './useLocalStorage';
 import { AppUI } from './AppUI';
+import { TaskProvider } from '../TaskContext';
 
-const states = ['To-do', 'In Progress', 'Done'];
-const categories = ['Personal', 'School', 'Work', 'Church'];
-const priority = ['Low', 'Medium', 'High'];
+
 
 /*
   localStorage.removeItem('TASKS_V1');
@@ -31,49 +29,13 @@ const priority = ['Low', 'Medium', 'High'];
 
 function App() {
 
-  const {item:tasks, saveItem:setTasks, loading, error} = useLocalStorage('TASKS_V1', []);
-
-  const [searchValue, setSearchValue] = React.useState('');
-
-  const [taskWindowIsOpen, setTaskWindowIsOpen] = useState(false);
-
-  const showTaskWindow = () => {
-    setTaskWindowIsOpen(!taskWindowIsOpen);
-  };
-
-  const completedTasks = tasks.filter(task => task.state === states[2]).length;
-
-  const totalTasks = tasks.length;
-
-  const searchFilteredTasks = tasks.filter(task => task.text.toLowerCase().includes(searchValue.toLowerCase()));
-
   
-
-  const changeTaskState = (id, state) => {
-    const newTasks = [...tasks];
-    const taskIndex = newTasks.findIndex(
-      task => task.id === id
-    )
-    newTasks[taskIndex].state = state;
-    setTasks(newTasks);
-  }
-
-  const deleteTask = (id) => {
-    const newTasks = [...tasks];
-    const taskIndex = newTasks.findIndex(
-      task => task.id === id
-    )
-    newTasks.splice(taskIndex, 1)
-    setTasks(newTasks);
-  }
 
 
   return (
-    <AppUI
-     completedTasks={completedTasks} totalTasks={totalTasks} searchValue={searchValue} setSearchValue={setSearchValue} 
-     searchFilteredTasks={searchFilteredTasks} changeTaskState={changeTaskState} deleteTask={deleteTask} showTaskWindow={showTaskWindow} 
-     taskWindowIsOpen={taskWindowIsOpen} states={states} categories={categories} priority={priority} loading={loading} error={error}
-    />
+    <TaskProvider>
+        <AppUI/>
+    </TaskProvider>
   );
 }
 

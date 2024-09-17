@@ -52,7 +52,7 @@ function TaskError () {
                     <div className="leg leg-right"></div>
                     <div className="schoolbag"></div>
                 </div>
-                <section className="error-message">Ha ocurrido un Error</section>
+                <section className="error-message">Error</section>
             </div>
         </>
     );
