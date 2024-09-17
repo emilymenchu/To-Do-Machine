@@ -6,10 +6,14 @@ import { TodoItem } from '../components/Item';
 import { CreateTodoButton } from '../components/CreateButton';
 import { CreateTaskWindow } from '../components/CreateTaskWindow';
 import { TaskLoading } from "../components/TasksLoading";
+import { TaskError } from "../components/TaskError";
 
 function AppUI ({ completedTasks, totalTasks, searchValue, setSearchValue, searchFilteredTasks, changeTaskState, deleteTask, showTaskWindow, taskWindowIsOpen, states, categories, priority, loading, error }) {
     return (
         <div className="main-background">
+
+      {error && <TaskError />}
+
 
       <div className="main-container">
         <TodoCounter completed={completedTasks} total={totalTasks} />
@@ -21,13 +25,14 @@ function AppUI ({ completedTasks, totalTasks, searchValue, setSearchValue, searc
         {states.map((state, index) => (
           <TodoList key={index} state={state}>
             {loading && <TaskLoading cards={3}/>}
-            {error && <span>Error!!! We all are going to die</span>}
+            {error && <TaskError />}
             {(!loading && searchFilteredTasks.length === 0) && <span>Create a new Task</span>}
             {searchFilteredTasks
             .filter((task) => task.state === state)
             .map((task) => (
               <TodoItem key={task.id} task={task} onChangeState={changeTaskState} onDelete={deleteTask}/>
             ))}
+            
           </TodoList>
         ))}
 

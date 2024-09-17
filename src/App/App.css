@@ -74,10 +74,16 @@ body {
 }
 
 @media (max-width: 500px){
+    .main-background {
+       min-height: fit-content;
+       height: 1000px;
+    max-height: 3000px;
+
+    }
     .main-container {
         overflow: auto;
-        height: 1000px;
-        max-height: 3000px;
+        /* height: 1000px;
+        max-height: 3000px; */
     }
 }
 
