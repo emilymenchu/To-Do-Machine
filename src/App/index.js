@@ -28,10 +28,6 @@ import { TaskProvider } from '../TaskContext';
 
 
 function App() {
-
-  
-
-
   return (
     <TaskProvider>
         <AppUI/>

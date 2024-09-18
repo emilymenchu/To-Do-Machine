@@ -12,7 +12,7 @@ function TaskProvider ({ children }) {
 
   const [searchValue, setSearchValue] = React.useState('');
 
-  const [taskWindowIsOpen, setTaskWindowIsOpen] = useState(false);
+  const [taskWindowIsOpen, setTaskWindowIsOpen] = React.useState(false);
 
   const showTaskWindow = () => {
     setTaskWindowIsOpen(!taskWindowIsOpen);

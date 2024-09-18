@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './TodoSearch.css'
+import { TaskContext } from '../../TaskContext';
 
-function TodoSearch({
-    searchValue,
-    setSearchValue
-}) {
+function TodoSearch() {
+
+    const { searchValue, setSearchValue } = useContext(TaskContext);
+
     return (
         <section className='search-parent-container'>
             <div className="search-container">
                 <input className="search-input" placeholder="Win a Nobel Prize" value={searchValue} onChange={(event) => {
-                    console.log('Escribiste en el TodoSearch');
                     setSearchValue(event.target.value);
                 }} />
                 <button className="search-button">
