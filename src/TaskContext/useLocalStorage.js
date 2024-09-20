@@ -8,7 +8,6 @@ function useLocalStorage(itemName, initialValue) {
 
     const [error, setError] = React.useState(false);
 
-    
     React.useEffect(() => {
         setTimeout(() => {
             try {

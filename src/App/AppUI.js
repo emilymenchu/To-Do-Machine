@@ -27,7 +27,7 @@ function AppUI () {
 
         <TaskContext.Consumer>
           {({
-            states, loading, searchFilteredTasks, changeTaskState, deleteTask
+            states, onTaskClick, loading, searchFilteredTasks, changeTaskState, deleteTask, taskMenuIsOpen, onTaskMenuClick, taskMenuRef
           }) => (
             <section className="lists-container">
 
@@ -38,7 +38,7 @@ function AppUI () {
                   {searchFilteredTasks
                   .filter((task) => task.state === state)
                   .map((task) => (
-                    <TodoItem key={task.id} task={task} onChangeState={changeTaskState} onDelete={deleteTask}/>
+                    <TodoItem key={task.id} task={task} onChangeState={changeTaskState} onDelete={deleteTask} onTaskClick={() => onTaskClick(task)} taskMenuIsOpen={taskMenuIsOpen} onTaskMenuClick={onTaskMenuClick} taskMenuRef={taskMenuRef}/>
                   ))}
 
                 </TodoList>

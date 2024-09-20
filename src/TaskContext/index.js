@@ -4,7 +4,7 @@ import { useLocalStorage } from './useLocalStorage';
 const TaskContext = React.createContext();
 
 const states = ['To-do', 'In Progress', 'Done'];
-const categories = ['Personal', 'School', 'Work', 'Church'];
+const categories = ['Personal', 'School', 'Work', 'Church', 'College', 'Family', 'Friends'];
 const priority = ['Low', 'Medium', 'High'];
 
 function TaskProvider ({ children }) {
@@ -12,19 +12,28 @@ function TaskProvider ({ children }) {
 
   const [searchValue, setSearchValue] = React.useState('');
 
-  const [taskWindowIsOpen, setTaskWindowIsOpen] = React.useState(false);
-
-  const showTaskWindow = () => {
-    setTaskWindowIsOpen(!taskWindowIsOpen);
-  };
-
-  const completedTasks = tasks.filter(task => task.state === states[2]).length;
-
-  const totalTasks = tasks.length;
-
-  const searchFilteredTasks = tasks.filter(task => task.text.toLowerCase().includes(searchValue.toLowerCase()));
+  const [task, setTask] = React.useState(null);
 
   
+  const [taskWindowIsOpen, setTaskWindowIsOpen] = React.useState(false);
+  
+  const showTaskWindow = () => {
+    if (taskWindowIsOpen) {
+      setTask(null);
+    }
+    setTaskWindowIsOpen(!taskWindowIsOpen);
+  };
+  
+  const completedTasks = tasks.filter(task => task.state === states[2]).length;
+  
+  const totalTasks = tasks.length;
+  
+  const searchFilteredTasks = tasks.filter(task => task.text.toLowerCase().includes(searchValue.toLowerCase()));
+  
+  const onTaskClick = (selectedTask) => {
+    showTaskWindow();
+    setTask(selectedTask);
+  }
 
   const changeTaskState = (id, state) => {
     const newTasks = [...tasks];
@@ -34,6 +43,10 @@ function TaskProvider ({ children }) {
     newTasks[taskIndex].state = state;
     setTasks(newTasks);
   }
+
+  // Task Menu Logic
+  
+
 
   const deleteTask = (id) => {
     const newTasks = [...tasks];
@@ -45,6 +58,11 @@ function TaskProvider ({ children }) {
   }
     return (
         <TaskContext.Provider value={{
+            tasks,
+            setTasks,
+            task,
+            setTask,
+            onTaskClick,
             completedTasks, 
             totalTasks, 
             searchValue, setSearchValue,
